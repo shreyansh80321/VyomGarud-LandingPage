@@ -1,12 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwind from "@tailwindcss/vite"; // intentionally using the plugin you want
+import tailwind from "@tailwindcss/vite"; 
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    tailwind(), // plugin call — keep it second after react
+    tailwind(), 
   ],
   server: {
     port: 3000,

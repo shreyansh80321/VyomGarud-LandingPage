@@ -1,19 +1,7 @@
-// src/utils/useScrollReveal.js
+
 import React, { useEffect, useRef } from "react";
 
-/**
- * useScrollReveal - returns a ref and toggles `reveal-visible` when element is in view.
- *
- * Options:
- *  - root = null
- *  - rootMargin = "0px 0px -10% 0px"
- *  - threshold = 0.12
- *  - duration = 600 (ms)
- *  - delay = 0 (ms)
- *  - direction = "up" | "down" | "left" | "right"
- *  - once = true (reveal only once)
- *  - stagger = false (if true, children will be staggered)
- */
+
 export function useScrollReveal(options = {}) {
   const ref = useRef(null);
   const opts = {
@@ -31,11 +19,9 @@ export function useScrollReveal(options = {}) {
     const el = ref.current;
     if (!el) return;
 
-    // set data attributes for CSS defaults
     el.dataset.direction = opts.direction;
     if (opts.stagger) el.dataset.stagger = "true";
 
-    // create observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -89,23 +75,12 @@ export function useScrollReveal(options = {}) {
         el.style.transitionDelay = "";
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return ref;
 }
 
-/**
- * Reveal component (wrapper)
- * Props:
- *  - children
- *  - className
- *  - duration (ms)
- *  - delay (ms)
- *  - direction
- *  - once
- *  - stagger
- */
+
 export function Reveal({
   children,
   className = "",
@@ -125,7 +100,6 @@ export function Reveal({
     stagger,
   });
 
-  // merge style with transition-duration/delay handled in hook
   return (
     <div
       ref={ref}

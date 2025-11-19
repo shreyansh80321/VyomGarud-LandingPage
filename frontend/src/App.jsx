@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-page-bg text-text transition-colors duration-300">
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles/:slug" element={<ArticlePage />} />

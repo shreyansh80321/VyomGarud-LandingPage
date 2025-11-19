@@ -27,8 +27,8 @@ export default function ArticlePage() {
 
   const attrs = article;
 const img =
-  attrs.cover?.url || // direct url
-  attrs.cover?.formats?.medium?.url || // better quality
+  attrs.cover?.url ||
+  attrs.cover?.formats?.medium?.url || 
   attrs.cover?.formats?.small?.url ||
   attrs.cover?.formats?.thumbnail?.url;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { getFullMediaUrl } from "../lib/api";
 import { Link } from "react-router-dom";
-import { Reveal } from "../utils/useScrollReveal"; // ← ADD THIS IMPORT
+import { Reveal } from "../utils/useScrollReveal"; 
 
 export default function Card({ item }) {
   const attrs = item;
@@ -18,9 +18,9 @@ export default function Card({ item }) {
 
   return (
     <Reveal
-      direction="up" // animation direction
-      duration={650} // animation duration in ms
-      delay={80} // delay for staggered feel
+      direction="up" 
+      duration={650} 
+      delay={80} 
       className="snap-start flex-shrink-0"
     >
       <div
@@ -33,7 +33,6 @@ export default function Card({ item }) {
         "
         style={{ flex: "0 0 auto" }}
       >
-        {/* Image (fills the square) */}
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={coverUrl}
@@ -46,8 +45,6 @@ export default function Card({ item }) {
             "
           />
         </div>
-
-        {/* Dark overlay */}
         <div
           className="
             absolute inset-0
@@ -58,9 +55,7 @@ export default function Card({ item }) {
           "
         />
 
-        {/* Content */}
         <div className="absolute inset-0 p-6 flex flex-col justify-end">
-          {/* Title (hides on hover) */}
           <h3
             className="
               text-xl md:text-2xl font-bold leading-snug
@@ -71,7 +66,6 @@ export default function Card({ item }) {
             {attrs.title}
           </h3>
 
-          {/* Date (hides on hover) */}
           <div
             className="
               text-sm text-gray-300 mt-2
@@ -84,7 +78,6 @@ export default function Card({ item }) {
             ).toLocaleDateString("en-US")}
           </div>
 
-          {/* Centered Description on Hover */}
           <p
             className="
               absolute inset-0
@@ -102,7 +95,6 @@ export default function Card({ item }) {
             {attrs.excerpt}
           </p>
 
-          {/* Arrow */}
           <Link
             to={`/articles/${attrs.slug}`}
             aria-label={`Read ${attrs.title}`}

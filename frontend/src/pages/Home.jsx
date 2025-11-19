@@ -15,7 +15,6 @@ export default function Home() {
       .catch(console.error);
   }, []);
 
-  // 🔍 Search Function
   const filteredArticles = articles.filter((a) => {
     const t = search.toLowerCase();
     return (
@@ -25,7 +24,6 @@ export default function Home() {
     );
   });
 
-  // Category filtering based on filteredArticles only
   const travelItems = filteredArticles.filter((a) =>
     a.categories?.some((c) => c.slug === "travel")
   );

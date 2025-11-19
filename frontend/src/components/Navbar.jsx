@@ -37,7 +37,7 @@ export default function Navbar() {
       `}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between py-5 md:py-6 px-5">
-        {/* Logo */}
+        
         <div className="flex items-center gap-3">
           <div
             className="
@@ -55,7 +55,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Navigation */}
         <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-blue-100/60">
           <button className="hover:text-white transition-colors duration-200">
             Home
@@ -71,7 +70,6 @@ export default function Navbar() {
           </button>
         </nav>
 
-        {/* Right section */}
         <div className="hidden md:flex items-center gap-4">
           <button
             className="

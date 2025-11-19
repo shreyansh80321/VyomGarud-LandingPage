@@ -5,7 +5,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Light mode colors
         "page-light": "#f4f6fb",
         "text-light": "#1a1a1a",
         "card-light": "#ffffff",

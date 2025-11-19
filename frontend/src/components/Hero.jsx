@@ -3,18 +3,15 @@ import React from "react";
 export default function Hero({ search, setSearch }) {
   return (
     <section className="relative py-28 md:py-36 overflow-hidden">
-      {/* Soft glowing orb background */}
       <div className="absolute inset-0 flex justify-center">
         <div className="w-[70%] h-[400px] bg-gradient-to-br from-blue-900/30 via-indigo-800/20 to-purple-900/30 rounded-full blur-[140px] opacity-60"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto text-center px-6 animate-fadeIn">
-        {/* Breadcrumb */}
         <div className="text-sm text-gray-400 mb-6 tracking-wide opacity-80">
           Home · Blog
         </div>
 
-        {/* Title */}
         <h1
           className="
           text-5xl md:text-7xl 
@@ -25,7 +22,6 @@ export default function Hero({ search, setSearch }) {
           Explore Insightful Stories
         </h1>
 
-        {/* Subtitle */}
         <p
           className="
           text-lg md:text-2xl 
@@ -36,8 +32,6 @@ export default function Hero({ search, setSearch }) {
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti commodi dolorem consequuntur laborum, culpa vel voluptate, obcaecati voluptas, voluptatem provident assumenda iure at.
         </p>
-
-        {/* Search Input */}
         <div className="mt-12 max-w-xl mx-auto">
           <div className="relative group">
             <span
@@ -72,7 +66,6 @@ export default function Hero({ search, setSearch }) {
         </div>
       </div>
 
-      {/* Fade-in animation */}
       <style>{`
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out forwards;

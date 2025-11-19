@@ -17,7 +17,6 @@ export default function CategoryPage() {
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
-      {/* 🔙 Back Button */}
       <Link
         to="/"
         className="

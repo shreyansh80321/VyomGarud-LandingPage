@@ -28,7 +28,6 @@ export default function Footer({ toggleTheme, theme }) {
           </ul>
         </div>
 
-        {/* ... other columns similar to above */}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-14 pb-10">
