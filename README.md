@@ -1,78 +1,93 @@
-📝 Strapi + React Blog Website
+🚀 Strapi + React Blog Website
 
-A full-stack blog system built using Strapi v5 (Backend) and React + Vite + TailwindCSS (Frontend) with SQLite as the default database.
+A complete full-stack blog platform built using:
 
-🚀 Features
-Frontend (React + Vite + TailwindCSS)
+Strapi v5 (Backend — REST API, Content Management)
 
-Modern, responsive UI
+React + Vite + TailwindCSS (Frontend — UI)
 
-Dynamic blog listing & category filtering
+SQLite Database (Default, zero setup)
 
-Search functionality
+Dark / Light Theme
 
-Scroll-animations & transitions
+Scroll-Reveal Animations
 
-Dark / Light Mode toggle
+Category Filtering + Search
 
-Article detail pages
+🌟 Features
+🔹 Frontend (React + Vite + TailwindCSS)
 
-Fetch API integration with Strapi
+⚡ Ultra-fast Vite bundler
 
-Backend (Strapi v5)
+🎨 Modern, responsive UI
 
-Articles, Categories, Authors
+🌓 Dark / Light Mode with theme switching
 
-Media upload system
+🔍 Live search (title, excerpt, content)
 
-REST API endpoints
+🗂 Category-based filtering
 
-Role-based permissions
+🎞 Smooth scroll-reveal animations
 
-Auto-generated admin panel
+🧭 Clean routing for article pages
 
-SQLite database (default, no setup needed)
+⏳ Loading states & beautiful transitions
 
-🏗️ System Architecture
-Users
-   ↓ (Browser)
-React Frontend (Vite + Tailwind)
-   ↓ Fetch API
+🔗 Connected to Strapi API
+
+🔸 Backend (Strapi v5)
+
+📝 Article, Category, Author content-types
+
+🖼️ Media upload (images for articles)
+
+🔐 Public role permissions configured
+
+🗄️ SQLite database for easy local development
+
+⚙️ Auto-generated Admin Panel
+
+🌐 REST API ready for consumption
+
+🏗 System Architecture
+Users (Browser)
+       ↓
+React Frontend (Vite + TailwindCSS)
+       ↓  Fetch API Calls
 Strapi Backend (Node.js)
-   ↓ Reads/Writes
+       ↓  CRUD Operations
 SQLite Database
 
-📦 Folder Structure
+📁 Folder Structure
 project-root/
-│── backend/      # Strapi v5 project (server)
-│── frontend/     # React + Vite application (client)
+│── backend/          # Strapi v5 Server (API + Admin Panel)
+│── frontend/         # React + Vite UI
+│── screenshots/      # Project screenshots
 │── README.md
 
-🛠️ Running Instructions (Evaluator Friendly)
+🛠 Setup & Run (Evaluator-Friendly)
 
-Follow these steps to run the entire project within 20–30 minutes.
+Follow these steps to run the project locally in 20–30 minutes.
 
 1️⃣ Clone the Repository
 git clone <your-repo-url>
 cd project-root
 
-2️⃣ Install & Run the Backend (Strapi v5)
-Install dependencies
+2️⃣ Setup Backend (Strapi v5)
 cd backend
 npm install
-
-Start Strapi
 npm run develop
 
-After starting:
 
-Strapi Admin Panel: http://localhost:1337/admin
+Strapi will start on:
 
-API Base URL: http://localhost:1337/api
+Admin Panel: http://localhost:1337/admin
 
-📌 First Run: You will be prompted to create an admin user.
+API Base: http://localhost:1337/api
 
-3️⃣ Install & Run the Frontend (React + Vite)
+On first run → create your Strapi admin user.
+
+3️⃣ Setup Frontend (React + Vite)
 
 Open a new terminal:
 
@@ -81,35 +96,26 @@ npm install
 npm run dev
 
 
-Frontend will start at:
+Frontend will run on:
 
 👉 http://localhost:5173
 
-4️⃣ Configure Frontend Environment (Required)
+4️⃣ Set Environment Variables (Frontend)
 
-Inside frontend/ create:
+Create frontend/.env:
 
-.env
 VITE_API_URL=http://localhost:1337
 
 
-Restart frontend after adding env variables.
+Restart the frontend after saving.
 
-✔️ After setup
+5️⃣ Configure Strapi Permissions (Required)
 
-Open: http://localhost:5173
+Inside Strapi Admin Panel:
 
-Create articles in Strapi Admin
+Settings → Users & Permissions → Roles → Public
 
-Articles will appear instantly in the React frontend
-
-🔐 Permissions Setup (Mandatory for Public Access)
-
-In Strapi Admin:
-
-Go to Settings → Users & Permissions → Roles → Public
-
-Enable these permissions:
+Enable:
 
 Article
 
@@ -131,52 +137,38 @@ findOne
 
 Click Save.
 
-📤 Optional Deployment Instructions
-🌐 Deploy Frontend
+Now your frontend can safely fetch data.
 
-You can deploy using:
+🖼 Screenshots
 
-Vercel
+Screenshots provided inside the repository under:
 
-Netlify
-
-Cloudflare Pages
-
-Just run:
-
-npm run build
+project-root/screenshots/
 
 
-and upload dist/.
+You can embed them like this:
 
-☁️ Deploy Backend
+Home Page – Hero Section
+![Home Hero](./screenshots/home-hero.png)
 
-Best platform for Strapi:
+Category Carousels
+![Categories](./screenshots/home-categories.png)
 
-Render
+Article Cards
+![Article Cards](./screenshots/article-cards.png)
 
-Railway
+Dark Mode
+![Dark Mode](./screenshots/home-dark-mode.png)
 
-DigitalOcean
+Light Mode
+![Light Mode](./screenshots/home-light-mode.png)
 
-Strapi Cloud (when v5 support arrives)
 
-Set environment variables:
-
-HOST=0.0.0.0
-PORT=1337
-APP_KEYS=your_app_keys
-API_TOKEN_SALT=your_salt
-ADMIN_JWT_SECRET=your_secret
-
-📚 Tech Stack
+📚 Tech Stack Summary
 Layer	Technology
 Frontend	React + Vite + Tailwind CSS
 Backend	Strapi v5 (Node.js)
 Database	SQLite
 Styling	TailwindCSS
-Deployment	Vercel / Render
-👤 Author
-
-VyomGarud
-Full-Stack Developer
+Animations	Custom Scroll Reveal + CSS Transitions
+Deployment	Vercel (Frontend) / Render (Backend)
