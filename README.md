@@ -149,19 +149,39 @@ project-root/screenshots/
 You can embed them like this:
 
 Home Page – Hero Section
+
+
+
 ![Home Hero](./screenshots/home-hero.png)
 
+
 Category Carousels
+
+
+
 ![Categories](./screenshots/home-categories.png)
 
+
 Article Cards
+
+
+
 ![Article Cards](./screenshots/article-cards.png)
 
+
 Dark Mode
+
+
+
 ![Dark Mode](./screenshots/home-dark-mode.png)
 
+
 Light Mode
+
+
+
 ![Light Mode](./screenshots/home-light-mode.png)
+
 
 
 📚 Tech Stack Summary
