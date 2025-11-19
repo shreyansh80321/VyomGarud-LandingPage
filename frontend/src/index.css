@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* ------------------------------
+   Theme variables (light default)
+   Use html.dark to enable dark mode
+   ------------------------------ */
+:root {
+  /* page */
+  --bg: linear-gradient(160deg, #fafbfd 0%, #f5f7fb 50%, #eef2f7 100%);
+  --bg-solid: #f6f8fb;
+  --page-gradient: linear-gradient(160deg, #ffffff, #f5f7fb, #eef2f7);
+
+  /* colors */
+  --text: #111827;         /* primary text (light mode) */
+  --muted: #6b7280;        /* muted text */
+  --accent: #0ea5ff;       /* accent link color (light) */
+  --accent-hover: #0284c7;
+  --card: #ffffff;         /* card bg in light mode */
+  --ui-border: rgba(15, 23, 42, 0.06);
+
+  /* scrollbars (light) */
+  --scroll-track: #f4f6fb;
+  --scroll-thumb: linear-gradient(180deg, #cfcfcf, #9e9e9e);
+}
+
+/* Dark mode overrides */
+html.dark,
+.dark {
+  --bg: linear-gradient(160deg, #10121b 0%, #0c0f16 50%, #080a10 100%);
+  --bg-solid: #0b0f15;
+  --page-gradient: linear-gradient(160deg, #10121b, #0c0f16, #080a10);
+
+  --text: #e6e6e6;
+  --muted: #9ca3af;
+  --accent: #f9a825;       /* amber-accent for dark */
+  --accent-hover: #ffb946;
+  --card: #11141b;
+  --ui-border: rgba(255, 255, 255, 0.04);
+
+  --scroll-track: #0f0f0f;
+  --scroll-thumb: linear-gradient(180deg, #444, #666);
+}
+
+/* Optional explicit .light class (same as :root) */
+html.light,
+.light {
+  /* re-declare or inherit from :root - left empty so :root covers it */
+}
+
+/* ------------------------------
+   Base / Reset
+   ------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* use variable background */
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 280ms ease, color 280ms ease;
+}
+
+/* links & buttons */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+a:hover { color: var(--accent-hover); }
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+/* subtle UI border helper */
+.border-ui {
+  border-color: var(--ui-border);
+}
+
+/* ------------------------------
+   Scrollbar (WebKit) - switches with theme
+   ------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.05);
+}
+
+/* ------------------------------
+   Fade-in utility
+   ------------------------------ */
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------
+   Scroll Reveal system (kept and fixed)
+   ------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px) scale(0.995);
+  transition-property: opacity, transform;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* direction offsets (initial state) */
+.reveal[data-direction="up"] { transform: translateY(20px); }
+.reveal[data-direction="down"] { transform: translateY(-20px); }
+.reveal[data-direction="left"] { transform: translateX(20px); }
+.reveal[data-direction="right"] { transform: translateX(-20px); }
+
+/* reset when visible */
+.reveal.reveal-visible[data-direction="up"],
+.reveal.reveal-visible[data-direction="down"],
+.reveal.reveal-visible[data-direction="left"],
+.reveal.reveal-visible[data-direction="right"] {
+  transform: translate(0,0) scale(1);
+}
+
+/* optional scale-only & fade-only */
+.reveal[data-scale="small"] { transform: scale(0.92); }
+.reveal.reveal-visible[data-scale="small"] { transform: scale(1); }
+.reveal[data-effect="fade"] { transform: none; }
+
+/* stagger children */
+.reveal[data-stagger="true"] > * {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.reveal.reveal-visible[data-stagger="true"] > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------
+   Accessibility: prefers-reduced-motion
+   ------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .reveal,
+  .reveal.reveal-visible,
+  .reveal[data-stagger="true"] > * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
