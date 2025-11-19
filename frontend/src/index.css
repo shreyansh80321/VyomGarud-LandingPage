@@ -1,9 +1,77 @@
+/* :root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+
+
 @import "tailwindcss";
 
-/* ------------------------------
-   Theme variables (light default)
-   Use html.dark to enable dark mode
-   ------------------------------ */
+
 :root {
   /* page */
   --bg: linear-gradient(160deg, #fafbfd 0%, #f5f7fb 50%, #eef2f7 100%);
@@ -95,93 +163,100 @@ button {
   border-color: var(--ui-border);
 }
 
-/* ------------------------------
-   Scrollbar (WebKit) - switches with theme
-   ------------------------------ */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--scroll-track);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--scroll-thumb);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  filter: brightness(1.05);
-}
 
-/* ------------------------------
-   Fade-in utility
-   ------------------------------ */
+/* Fade-in animation utility */
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ------------------------------
-   Scroll Reveal system (kept and fixed)
-   ------------------------------ */
+
+/* ------------------------------ */
+/* 🌟 SCROLL REVEAL SYSTEM */
+/* ------------------------------ */
+
+/* initial hidden state */
 .reveal {
   opacity: 0;
   transform: translateY(12px) scale(0.995);
   transition-property: opacity, transform;
-  transition-duration: 600ms;
   transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   will-change: opacity, transform;
 }
 
+/* visible state */
 .reveal.reveal-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* direction offsets (initial state) */
-.reveal[data-direction="up"] { transform: translateY(20px); }
-.reveal[data-direction="down"] { transform: translateY(-20px); }
-.reveal[data-direction="left"] { transform: translateX(20px); }
-.reveal[data-direction="right"] { transform: translateX(-20px); }
 
-/* reset when visible */
+/* ------------------------------ */
+/* Direction modifiers */
+/* ------------------------------ */
+
+/* initial direction offsets */
+.reveal[data-direction="up"] {
+  transform: translateY(20px);
+}
+.reveal[data-direction="down"] {
+  transform: translateY(-20px);
+}
+.reveal[data-direction="left"] {
+  transform: translateX(20px);
+}
+.reveal[data-direction="right"] {
+  transform: translateX(-20px);
+}
+
+/* when visible → reset transforms */
 .reveal.reveal-visible[data-direction="up"],
 .reveal.reveal-visible[data-direction="down"],
 .reveal.reveal-visible[data-direction="left"],
 .reveal.reveal-visible[data-direction="right"] {
-  transform: translate(0,0) scale(1);
+  transform: translate(0, 0) scale(1);
 }
 
-/* optional scale-only & fade-only */
-.reveal[data-scale="small"] { transform: scale(0.92); }
-.reveal.reveal-visible[data-scale="small"] { transform: scale(1); }
-.reveal[data-effect="fade"] { transform: none; }
 
-/* stagger children */
+/* ------------------------------ */
+/* Optional scale-only mode */
+/* ------------------------------ */
+.reveal[data-scale="small"] {
+  transform: scale(0.92);
+}
+.reveal.reveal-visible[data-scale="small"] {
+  transform: scale(1);
+}
+
+
+/* ------------------------------ */
+/* Fade-only mode */
+/* ------------------------------ */
+.reveal[data-effect="fade"] {
+  transform: none;
+}
+
+
+/* ------------------------------ */
+/* Stagger children */
+/* ------------------------------ */
 .reveal[data-stagger="true"] > * {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
+
 .reveal.reveal-visible[data-stagger="true"] > * {
   opacity: 1;
   transform: none;
-}
-
-/* ------------------------------
-   Accessibility: prefers-reduced-motion
-   ------------------------------ */
-@media (prefers-reduced-motion: reduce) {
-  .animate-fadeIn,
-  .reveal,
-  .reveal.reveal-visible,
-  .reveal[data-stagger="true"] > * {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
 }
